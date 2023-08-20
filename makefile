@@ -106,6 +106,7 @@ debug :
 
 #---Genrete project documentation with doxygen-----------------------------------------------------
 docs :
+	mkdir -p Build
 	doxygen .doxyfile
 	firefox Build/doxygen/html/index.html
 

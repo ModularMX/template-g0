@@ -51,6 +51,8 @@ LFLAGS += -Wl,-Map=Build/$(TARGET).map	# Generate map file
 #Linter ccpcheck flags
 LNFLAGS  = --inline-suppr       # comments to suppress lint warnings
 LNFLAGS += --quiet              # spit only useful information
+LNFLAGS += --enable=warning,style # enable only warnings
+LNFLAGS += --error-exitcode=1	# return error if any warnings
 LNFLAGS += --std=c11            # check against C11
 LNFLAGS += --template=gcc       # display warning gcc style
 LNFLAGS += --force              # evaluate all the #if sentences

@@ -73,10 +73,10 @@ Octal constants shall not be used
 Rule 7.2  Required
 A “u” or “U” suffix shall be applied to all integer constants that are represented in an unsigned type
 Rule 7.3  Required
-The lowercase character “l” shall not be used in a literal suffix
+The lowercase character "l" shall not be used in a literal suffix
 Rule 7.4  Required
-A string literal shall not be assigned to an object unless the object’s type is “pointer to 
-const-qualified char”
+A string literal shall not be assigned to an object unless the objects type is "pointer to 
+const-qualified char"
 
 Declarations and definitions
 
@@ -315,7 +315,7 @@ Rule 20.8  Required
 The controlling expression of a #if or #elif preprocessing directive shall evaluate to 0 or 1
 Rule 20.9  Required
 All identifiers used in the controlling expression of #if or #elif preprocessing directives 
-shall be #define’d before evaluation
+shall be #define'd before evaluation
 Rule 20.10  Advisory
 The # and ## preprocessor operators should not be used
 Rule 20.11  Required

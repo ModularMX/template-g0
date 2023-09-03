@@ -2,5 +2,3 @@
 // ignore a specific misra warning in a entire file. This file was created to somehow workaraund
 // this issue
 
-// suppress all MISRA warnings in source/cmsis-st32mg0xx folder
-

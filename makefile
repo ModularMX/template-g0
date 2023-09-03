@@ -130,7 +130,7 @@ docs : build
 	doxygen .doxyfile
 	firefox Build/doxygen/html/index.html
 
-#---Run Static analysis
+#---Run Static analysis plus MISRA-----------------------------------------------------------------
 lint : build
 	mkdir -p Build/lint
 	cppcheck --addon=misra.json --suppressions-list=.msupress $(LNFLAGS) app

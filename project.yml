@@ -50,8 +50,8 @@
     - halg0/**                # Ignore files in HAL library
     - cmsisg0/**              # Ignore files in HAL library
     - app/main.c              # Ignore main file (renmove from here ig needed)
-    - app/app_ints.c          # Do not test interrupt vectors
-    - app/app_msps.c          # Do not test extra initlization functions
+    - app/ints.c              # Do not test interrupt vectors
+    - app/msps.c              # Do not test extra initlization functions
 
 
 # Configure the mock generator

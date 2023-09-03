@@ -4,5 +4,4 @@
 /* cppcheck-suppress misra-c2012-8.4 ; its external linkage is declared at HAL library */
 void HAL_MspInit( void )
 {
-    
 }

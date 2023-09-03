@@ -5,7 +5,6 @@
 /* cppcheck-suppress misra-c2012-8.4 ; its external linkage is declared at HAL library */
 void NMI_Handler( void )
 {
-
 }
 
 /* cppcheck-suppress misra-c2012-8.4 ; its external linkage is declared at HAL library */
@@ -17,13 +16,11 @@ void HardFault_Handler( void )
 /* cppcheck-suppress misra-c2012-8.4 ; its external linkage is declared at HAL library */
 void SVC_Handler( void )
 {
-
 }
 
 /* cppcheck-suppress misra-c2012-8.4 ; its external linkage is declared at HAL library */
 void PendSV_Handler( void )
 {
-
 }
 
 /* cppcheck-suppress misra-c2012-8.4 ; its external linkage is declared at HAL library */

@@ -1,3 +1,4 @@
+/* clang-format off */
 /**
   ******************************************************************************
   * @file    stm32g0xx_hal_conf.h
@@ -350,3 +351,4 @@ void assert_failed(uint8_t *file, uint32_t line);
 #endif /* STM32G0xx_HAL_CONF_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+/* clang-format on */

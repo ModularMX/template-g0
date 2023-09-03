@@ -82,7 +82,7 @@
         - -ffunction-sections
         - -fdata-sections
         - -fno-builtin
-        - -std=c99
+        - -std=c11
         - -pedantic
         - -Wall
         - -Werror
@@ -101,7 +101,7 @@
         - -ffunction-sections
         - -fdata-sections
         - -fno-builtin
-        - -std=c99
+        - -std=c11
         - -pedantic
         - -Wall
         - -Werror

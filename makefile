@@ -28,7 +28,7 @@ CFLAGS += -g3                        # Debugging information level (g1, g2, g3)
 CFLAGS += -ffunction-sections        # Create a separate function section
 CFLAGS += -fdata-sections            # Create a separate data section
 CFLAGS += -fno-builtin               # Don't recognize built-in functions that do not begin with ‘__builtin_’ as prefix
-CFLAGS += -std=c99                   # Comply with C11
+CFLAGS += -std=c11                   # Comply with C11
 CFLAGS += -Wall                      # Be anal Enable All Warnings
 CFLAGS += -pedantic                  # Be extra anal More ANSI Checks
 CFLAGS += -Wstrict-prototypes        # Warn if a function is declared or defined without specifying the argument types
@@ -51,7 +51,7 @@ LFLAGS += -Wl,-Map=Build/$(TARGET).map	# Generate map file
 #Linter ccpcheck flags
 LNFLAGS  = --inline-suppr       # comments to suppress lint warnings
 LNFLAGS += --quiet              # spit only useful information
-LNFLAGS += --std=c99            # check against C11
+LNFLAGS += --std=c11            # check against C11
 LNFLAGS += --template=gcc       # display warning gcc style
 LNFLAGS += --force              # evaluate all the #if sentences
 LNFLAGS += --platform=unix32    # lint againt a unix32 platform, but we are using arm32
@@ -114,3 +114,8 @@ docs :
 lint :
 	mkdir -p Build/checks
 	cppcheck --addon=misra.json --suppressions-list=.msupress $(LNFLAGS) app
+
+#---Run unit testing with code coverage using ceedling---------------------------------------------
+test :
+	ceedling clobber
+	ceedling gcov:all utils:gcov

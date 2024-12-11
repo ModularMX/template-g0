@@ -30,7 +30,7 @@ INC_PATHS += cmsisg0/registers
 INC_PATHS += halg0/Inc
 
 # -------------------------------------------------------------------------------------------------
-# NOTE: From this point do not edit anything at least you know what your are doing
+# NOTE: From this point do not edit anything unless you know what your are doing
 # ------------------------------------------------------------------------------------------------- 
 TOOLCHAIN = arm-none-eabi
 CPU = -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft
@@ -39,8 +39,6 @@ CPU = -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft
 CFLAGS  = $(CPU)
 CFLAGS += -O0                        # Compile with Size Optimizations (O0, O1, O2, O3, Os)
 CFLAGS += -g3                        # Debugging information level (g1, g2, g3)
-CFLAGS += -ffunction-sections        # Create a separate function section
-CFLAGS += -fdata-sections            # Create a separate data section
 CFLAGS += -fno-builtin               # Don't recognize built-in functions that do not begin with ‘__builtin_’ as prefix
 CFLAGS += -std=c11                   # Comply with C11
 CFLAGS += -Wall                      # Be anal Enable All Warnings
@@ -50,7 +48,7 @@ CFLAGS += -fsigned-char              # char is treated as signed
 CFLAGS += -fdiagnostics-color=always # color the output
 CFLAGS += -fomit-frame-pointer       # Don't keep the frame pointer in a register for functions that don't need one
 CFLAGS += -fverbose-asm              # Put extra commentary information in the generated assembly code
-CFLAGS += -MMD -MP
+CFLAGS += -MMD -MP					 # flags to enable recompilation of dependencies
 
 # assembler flags
 AFLAGS = $(CPU)

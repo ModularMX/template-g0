@@ -15,6 +15,8 @@ TARGET = temp
 SRCS  = main.c ints.c msps.c startup_stm32g0b1xx.s system_stm32g0xx.c 
 SRCS += stm32g0xx_hal.c stm32g0xx_hal_cortex.c stm32g0xx_hal_rcc.c stm32g0xx_hal_flash.c
 SRCS += stm32g0xx_hal_gpio.c
+# library files
+LIBF = 
 # linker file
 LINKER = linker.ld
 # Global symbols (#defines)
@@ -28,6 +30,8 @@ INC_PATHS  = app
 INC_PATHS += cmsisg0/core
 INC_PATHS += cmsisg0/registers
 INC_PATHS += halg0/Inc
+# directories with library files *.a
+LIB_PATHS  =
 
 # -------------------------------------------------------------------------------------------------
 # NOTE: From this point do not edit anything unless you know what your are doing
@@ -74,11 +78,14 @@ LNFLAGS += --cppcheck-build-dir=Build/lint
 # prefix substitution 
 OBJS = $(SRCS:%.c=Build/obj/%.o)
 OBJS := $(OBJS:%.s=Build/obj/%.o)
+OBJS := $(OBJS:%.S=Build/obj/%.o)
 DEPS = $(OBJS:%.o=%.d)
 
 # set source and header directories variables
 VPATH = $(SRC_PATHS)
 INCLS = $(addprefix -I ,$(INC_PATHS))
+LIBS = $(addprefix -L,$(LIB_PATHS))
+LIBSF = $(addprefix -l,$(LIBF))
 
 #---Build project----------------------------------------------------------------------------------
 all : build $(TARGET)
@@ -89,13 +96,16 @@ $(TARGET) : $(addprefix Build/, $(TARGET).elf)
 	$(TOOLCHAIN)-size --format=berkeley $<
 
 Build/$(TARGET).elf : $(OBJS)
-	$(TOOLCHAIN)-gcc $(LFLAGS) -T $(LINKER) -o $@ $^
+	$(TOOLCHAIN)-gcc $(LFLAGS) -T $(LINKER) $(LIBS) -o $@ $^
 
 Build/obj/%.o : %.c
 	$(TOOLCHAIN)-gcc $(CFLAGS) $(INCLS) $(SYMBOLS) -o $@ -c $<
 
 Build/obj/%.o : %.s
 	$(TOOLCHAIN)-as $(AFLAGS) -o $@ -c $<
+
+Build/obj/%.o : %.S
+	$(TOOLCHAIN)-gcc $(AFLAGS) $(INCLS) -o $@ -c $<
 
 -include $(DEPS)
 

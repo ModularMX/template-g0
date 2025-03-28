@@ -62,6 +62,7 @@ LFLAGS  = $(CPU)
 LFLAGS += -Wl,--gc-sections
 LFLAGS += --specs=rdimon.specs 			# link with semihosting 
 LFLAGS += --specs=nano.specs 			# nano version of stdlib
+LFLAGS += -Wl,--no-wchar-size-warning
 LFLAGS += -Wl,-Map=Build/$(TARGET).map	# Generate map file 
 
 # Linter ccpcheck flags

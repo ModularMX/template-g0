@@ -97,7 +97,7 @@ $(TARGET) : $(addprefix Build/, $(TARGET).elf)
 	$(TOOLCHAIN)-size --format=berkeley $<
 
 Build/$(TARGET).elf : $(OBJS)
-	$(TOOLCHAIN)-gcc $(LFLAGS) -T $(LINKER) $(LIBS) -o $@ $^
+	$(TOOLCHAIN)-gcc $(LFLAGS) -T $(LINKER) $(LIBS) -o $@ $^ $(LIBSF)
 
 Build/obj/%.o : %.c
 	$(TOOLCHAIN)-gcc $(CFLAGS) $(INCLS) $(SYMBOLS) -o $@ -c $<
